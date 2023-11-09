@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="topicJLabel" onMouseEntered="#mouseEnteredFrame" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FormController">
+   <children>
+      <ImageView fx:id="backgroundImage" fitHeight="408.0" fitWidth="660.0" layoutX="-60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/backgroundImage.jpg" />
+         </image>
+      </ImageView>
+      <Pane fx:id="sidePane" layoutX="20.0" layoutY="33.0" onMouseEntered="#sidePaneFocused" onMouseExited="#sidePaneFocusLost" opacity="0.7" prefHeight="354.0" prefWidth="267.0" style="-fx-background-color: black; -fx-background-radius: 25px; -fx-border-width: 5px; -fx-border-radius: 20px; -fx-border-color: blue;">
+         <children>
+            <Label fx:id="mainTopicLabel" layoutX="22.0" layoutY="22.0" prefHeight="42.0" prefWidth="229.0" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="nameTextField" focusColor="#a7ff48" labelFloat="true" layoutX="22.0" layoutY="81.0" prefHeight="25.0" prefWidth="183.0" style="-fx-prompt-text-fill: #FFFFFF; -fx-text-inner-color: #FFFFFF;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="ageTextFeild" focusColor="#a7ff48" labelFloat="true" layoutX="22.0" layoutY="131.0" prefHeight="25.0" prefWidth="183.0" style="-fx-prompt-text-fill: #FFFFFF; -fx-text-inner-color: #FFFFFF;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="contactTextField" focusColor="#a7ff48" labelFloat="true" layoutX="22.0" layoutY="185.0" prefHeight="25.0" prefWidth="183.0" style="-fx-prompt-text-fill: #FFFFFF; -fx-text-inner-color: #FFFFFF;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="emailTextField" focusColor="#a7ff48" labelFloat="true" layoutX="22.0" layoutY="238.0" prefHeight="25.0" prefWidth="183.0" style="-fx-prompt-text-fill: #FFFFFF; -fx-text-inner-color: #FFFFFF;" unFocusColor="WHITE" />
+            <JFXRadioButton fx:id="maleRadioBtn" layoutX="73.0" layoutY="299.0" style="-fx-rippler-fill: lime;" text="Male" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <toggleGroup>
+                  <ToggleGroup fx:id="gender" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="femaleRadioBtn" layoutX="133.0" layoutY="299.0" style="-fx-rippler-fill: lime;" text="Female" textFill="WHITE" toggleGroup="$gender" />
+            <Label fx:id="genderLabel" layoutX="16.0" layoutY="299.0" prefHeight="17.0" prefWidth="53.0" textFill="#fbf8f8" />
+         </children></Pane>
+   </children>
+</AnchorPane>
