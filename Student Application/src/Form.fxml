@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
@@ -11,25 +12,25 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="topicJLabel" onMouseEntered="#mouseEnteredFrame" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FormController">
+<AnchorPane fx:id="document" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FormController">
    <children>
-      <ImageView fx:id="backgroundImage" fitHeight="408.0" fitWidth="660.0" layoutX="-60.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="backgroundImage" fitHeight="416.0" fitWidth="689.0" layoutX="-60.0" opacity="0.86" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/backgroundImage.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="sidePane" layoutX="20.0" layoutY="33.0" onMouseEntered="#sidePaneFocused" onMouseExited="#sidePaneFocusLost" opacity="0.7" prefHeight="354.0" prefWidth="267.0" style="-fx-background-color: black; -fx-background-radius: 25px; -fx-border-width: 5px; -fx-border-radius: 20px; -fx-border-color: blue;">
+      <Pane fx:id="sidePane" layoutX="20.0" layoutY="17.0" onMouseEntered="#sidePaneFocused" onMouseExited="#sidePaneFocusLost" opacity="0.7" prefHeight="379.0" prefWidth="270.0" style="-fx-background-color: black; -fx-background-radius: 25px; -fx-border-width: 5px; -fx-border-radius: 20px; -fx-border-color: blue;">
          <children>
             <Label fx:id="mainTopicLabel" layoutX="22.0" layoutY="22.0" prefHeight="42.0" prefWidth="229.0" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="nameTextField" focusColor="#a7ff48" labelFloat="true" layoutX="22.0" layoutY="81.0" prefHeight="25.0" prefWidth="183.0" style="-fx-prompt-text-fill: #FFFFFF; -fx-text-inner-color: #FFFFFF;" unFocusColor="WHITE" />
-            <JFXTextField fx:id="ageTextFeild" focusColor="#a7ff48" labelFloat="true" layoutX="22.0" layoutY="131.0" prefHeight="25.0" prefWidth="183.0" style="-fx-prompt-text-fill: #FFFFFF; -fx-text-inner-color: #FFFFFF;" unFocusColor="WHITE" />
-            <JFXTextField fx:id="contactTextField" focusColor="#a7ff48" labelFloat="true" layoutX="22.0" layoutY="185.0" prefHeight="25.0" prefWidth="183.0" style="-fx-prompt-text-fill: #FFFFFF; -fx-text-inner-color: #FFFFFF;" unFocusColor="WHITE" />
-            <JFXTextField fx:id="emailTextField" focusColor="#a7ff48" labelFloat="true" layoutX="22.0" layoutY="238.0" prefHeight="25.0" prefWidth="183.0" style="-fx-prompt-text-fill: #FFFFFF; -fx-text-inner-color: #FFFFFF;" unFocusColor="WHITE" />
-            <JFXRadioButton fx:id="maleRadioBtn" layoutX="73.0" layoutY="299.0" style="-fx-rippler-fill: lime;" text="Male" textFill="WHITE">
+            <JFXTextField fx:id="nameTextField" focusColor="#a7ff48" labelFloat="true" layoutX="22.0" layoutY="78.0" prefHeight="25.0" prefWidth="183.0" style="-fx-prompt-text-fill: #FFFFFF; -fx-text-inner-color: #FFFFFF;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="ageTextFeild" focusColor="#a7ff48" labelFloat="true" layoutX="22.0" layoutY="134.0" onKeyReleased="#ageKeyReleased" prefHeight="25.0" prefWidth="183.0" style="-fx-prompt-text-fill: #FFFFFF; -fx-text-inner-color: #FFFFFF;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="contactTextField" focusColor="#a7ff48" labelFloat="true" layoutX="22.0" layoutY="193.0" onKeyReleased="#contactKeyReleased" prefHeight="25.0" prefWidth="183.0" style="-fx-prompt-text-fill: #FFFFFF; -fx-text-inner-color: #FFFFFF;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="emailTextField" focusColor="#a7ff48" labelFloat="true" layoutX="22.0" layoutY="250.0" prefHeight="25.0" prefWidth="183.0" style="-fx-prompt-text-fill: #FFFFFF; -fx-text-inner-color: #FFFFFF;" unFocusColor="WHITE" />
+            <JFXRadioButton fx:id="maleRadioBtn" layoutX="73.0" layoutY="305.0" onAction="#getGender" style="-fx-rippler-fill: lime;" text="Male" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -37,8 +38,19 @@
                   <ToggleGroup fx:id="gender" />
                </toggleGroup>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="femaleRadioBtn" layoutX="133.0" layoutY="299.0" style="-fx-rippler-fill: lime;" text="Female" textFill="WHITE" toggleGroup="$gender" />
-            <Label fx:id="genderLabel" layoutX="16.0" layoutY="299.0" prefHeight="17.0" prefWidth="53.0" textFill="#fbf8f8" />
+            <JFXRadioButton fx:id="femaleRadioBtn" layoutX="133.0" layoutY="305.0" onAction="#getGender" style="-fx-rippler-fill: lime;" text="Female" textFill="WHITE" toggleGroup="$gender" />
+            <Label fx:id="genderLabel" layoutX="16.0" layoutY="304.0" prefHeight="17.0" prefWidth="53.0" textFill="#fbf8f8" />
+            <JFXButton fx:id="submitButton" buttonType="RAISED" layoutX="191.0" layoutY="339.0" onMouseClicked="#submitBtnClicked" ripplerFill="#f7ff00" style="-fx-background-color: grey;" text="Submit" textFill="WHITE" />
+            <Label fx:id="ageValidationText" layoutX="21.0" layoutY="166.0" prefHeight="17.0" prefWidth="144.0" textFill="#fd5e46" />
+            <Label fx:id="contactValidationText" layoutX="21.0" layoutY="221.0" prefHeight="17.0" prefWidth="144.0" textFill="#fd5e46" />
+            <Label fx:id="emailValidationText" layoutX="22.0" layoutY="282.0" prefHeight="17.0" prefWidth="144.0" textFill="#fd5e46" />
+            <Label fx:id="nameValidationText" layoutX="22.0" layoutY="110.0" prefHeight="17.0" prefWidth="144.0" textFill="#fd5e46" />
+            <Label fx:id="genderValidationText" layoutX="21.0" layoutY="326.0" prefHeight="17.0" prefWidth="144.0" textFill="#fd5e46" />
          </children></Pane>
+      <ImageView fx:id="icetLogo" fitHeight="94.0" fitWidth="126.0" layoutX="477.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/icetLogo-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

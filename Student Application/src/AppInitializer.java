@@ -15,8 +15,5 @@ public class AppInitializer extends Application {
     public void start(Stage primaryStage) throws IOException, AWTException {
         primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("Form.fxml"))));
         primaryStage.show();
-
-        Robot robot=new Robot();
-        robot.mouseMove(900,400);
     }
 }
